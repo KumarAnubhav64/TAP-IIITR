@@ -23,7 +23,7 @@ const CoordinatorSidebar = ({ isMobile }: { isMobile?: boolean }) => {
   const handleLogout = async () => {
     try {
       const { data } = await axios.post(
-        "https://tap-backend.up.railway.app/api/auth/tap/logout",
+        `${import.meta.env.VITE_BACKEND_URL}/api/auth/tap/logout`,
         {}, // No body needed for logout in most cases
         {
           headers: { "Content-Type": "application/json" },
@@ -95,8 +95,7 @@ const CoordinatorSidebar = ({ isMobile }: { isMobile?: boolean }) => {
                   to={item.path}
                   onClick={() => setIsDropdownOpen(false)}
                   className={({ isActive }) =>
-                    `h-12 text-sm flex items-center px-6 text-white ${
-                      isActive ? "bg-[#29A8EF]" : "hover:bg-[#29A8EF]/20"
+                    `h-12 text-sm flex items-center px-6 text-white ${isActive ? "bg-[#29A8EF]" : "hover:bg-[#29A8EF]/20"
                     }`
                   }
                 >
@@ -149,9 +148,8 @@ const CoordinatorSidebar = ({ isMobile }: { isMobile?: boolean }) => {
             <NavLink
               key={index}
               to={item.path}
-              className={`h-14 text-sm flex items-center justify-center px-6 ${
-                isActive ? "bg-[#29A8EF]" : "hover:bg-[#29A8EF]/20"
-              }`}
+              className={`h-14 text-sm flex items-center justify-center px-6 ${isActive ? "bg-[#29A8EF]" : "hover:bg-[#29A8EF]/20"
+                }`}
             >
               {item.title}
             </NavLink>

@@ -58,7 +58,7 @@ const CoordinatorHomepage = () => {
   const fetchApplications = async () => {
     try {
       const { data } = await axios.get(
-        `https://tap-backend.up.railway.app/api/jobs/tap/applications`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/jobs/tap/applications`,
         {
           withCredentials: true,
         }
@@ -329,11 +329,10 @@ const CoordinatorHomepage = () => {
 
                       <div className="mt-4 flex justify-between items-center">
                         <span
-                          className={`inline-block text-xs px-3 py-1.5 rounded-full transition-all duration-300 ${
-                            job.status === "Verified"
+                          className={`inline-block text-xs px-3 py-1.5 rounded-full transition-all duration-300 ${job.status === "Verified"
                               ? "bg-green-50 text-green-700 group-hover:bg-green-100 group-hover:shadow-sm"
                               : "bg-yellow-50 text-yellow-700 group-hover:bg-yellow-100 group-hover:shadow-sm"
-                          }`}
+                            }`}
                         >
                           {job.status}
                         </span>
@@ -391,11 +390,10 @@ const CoordinatorHomepage = () => {
                       </div>
                       <div>
                         <span
-                          className={`inline-block text-xs px-3 py-1.5 rounded-full transition-all duration-300 ${
-                            application?.status === "Verified"
+                          className={`inline-block text-xs px-3 py-1.5 rounded-full transition-all duration-300 ${application?.status === "Verified"
                               ? "bg-green-50 text-green-700 group-hover:bg-green-100 group-hover:shadow-sm"
                               : "bg-yellow-50 text-yellow-700 group-hover:bg-yellow-100 group-hover:shadow-sm"
-                          }`}
+                            }`}
                         >
                           {application?.status || "Pending"}
                         </span>

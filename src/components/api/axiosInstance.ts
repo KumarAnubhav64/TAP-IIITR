@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://tap-backend.up.railway.app/api", // Your backend base URL
+  baseURL: import.meta.env.VITE_BACKEND_URL + "/api", // Your backend base URL
   withCredentials: true, // This ensures cookies (like the token) are sent with requests
 });
 
