@@ -1,4 +1,5 @@
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { ImageLoader } from "./ui/ImageLoader";
 import logo from "../assets/iiitranchi-white-logo.png";
 import { useState } from "react";
 import { toast } from "react-toastify";
@@ -55,7 +56,7 @@ const StudentSidebar = ({ isMobile }: StudentSidebarProps) => {
         <div className="fixed top-0 left-0 right-0 h-16 gradient-bg-sidebar z-20">
           <div className="flex items-center justify-between h-full px-4">
             <div className="flex gap-5 items-center">
-              <img src={logo} alt="IIIT Ranchi" className="h-12 w-auto" />
+              <ImageLoader src={logo} alt="IIIT Ranchi" className="h-12 w-auto" />
               <span className="text-lg text-white font-regular">
                 IIIT Ranchi
               </span>
@@ -131,7 +132,7 @@ const StudentSidebar = ({ isMobile }: StudentSidebarProps) => {
   return (
     <div className="flex flex-col h-screen w-56 gradient-bg-sidebar text-white">
       <div className="p-4">
-        <img
+        <ImageLoader
           src={logo}
           alt="Campus View"
           className="object-contain w-[141px] h-[118px] mx-auto"

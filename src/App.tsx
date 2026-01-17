@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { GlobalLoader } from "./components/ui/GlobalLoader";
 
 // Lazy load components
 const Home = lazy(() => import("./pages/home"));
@@ -52,13 +53,7 @@ function App() {
   return (
     <>
       <ToastContainer position="top-center" autoClose={3000} />
-      <Suspense
-        fallback={
-          <div className="flex justify-center items-center h-screen">
-            Loading...
-          </div>
-        }
-      >
+      <Suspense fallback={<GlobalLoader />}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
@@ -96,7 +91,7 @@ function App() {
             <Route path="report-bugs" element={<CoordinatorBugPage />} />
           </Route>
         </Routes>
-      </Suspense>
+      </Suspense >
     </>
   );
 }
